@@ -1,0 +1,44 @@
+<mvc:View
+    controllerName="tablerokanbam.controller.Main"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:layout="sap.ui.layout"
+    xmlns:dnd="sap.ui.core.dnd"
+    displayBlock="true">
+    
+    <Page title="Tablero Kanban">
+        <content>
+            <!-- Contenedor horizontal para las columnas -->
+            <layout:HorizontalLayout id="kanbanBoard" allowWrapping="true">
+                
+                <!-- Primera -->
+                <Panel headerText="Pendientes" class="sapUiResponsiveMargin" id="columnToDo" dnd="true">
+                    <List id="listToDo" mode="None" items="{/columns/0/tasks}" dnd="true">
+                        <StandardListItem title="{text}" type="Active" />
+                    </List>
+                </Panel>
+
+                <!-- Segunda  -->
+                <Panel headerText="En Progreso" class="sapUiResponsiveMargin" id="columnInProgress" dnd="true">
+                    <List id="listInProgress" mode="None" items="{/columns/1/tasks}" dnd="true">
+                        <StandardListItem title="{text}" type="Active" />
+                    </List>
+                </Panel>
+
+                <!-- Tercera -->
+                <Panel headerText="Completadas" class="sapUiResponsiveMargin" id="columnDone" dnd="true">
+                    <List id="listDone" mode="None" items="{/columns/2/tasks}" dnd="true">
+                        <StandardListItem title="{text}" type="Active" />
+                    </List>
+                </Panel>
+                
+            </layout:HorizontalLayout>
+
+            <!--  Agregar tarea -->
+            <Panel headerText="Agregar nueva tarea" class="sapUiResponsiveMargin">
+                <Button text="Agregar tarea" press="openAddDialog"/>
+            </Panel>
+        </content>
+    </Page>
+
+</mvc:View>
